@@ -18,12 +18,14 @@ class MainActivity : AppCompatActivity() {
         val username = usernameTextView.text.toString()
         val password = passwordTextView.text.toString()
 
-        var intenToDetail = Intent(this@MainActivity, DetailActivity::class.java)
-        intenToDetail.putExtra("username", username)
-        intenToDetail.putExtra("password", password)
-
-        startActivity(intenToDetail)
-
+        if (username == "Aphiwit" && password == "123456") {
+            var intenToDetail = Intent(this@MainActivity, DetailActivity::class.java)
+            intenToDetail.putExtra("username", username)
+            intenToDetail.putExtra("password", password)
+            startActivity(intenToDetail)
+        } else {
+            Toast.makeText(applicationContext, "Username or Password is not correct", Toast.LENGTH_LONG).show()
+        }
 
     }
 
